@@ -19,8 +19,17 @@ from django.urls import path
 from django.http import HttpResponse
 from mindbotslab import views
 
+#App
+from users import views as users_views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello-world/',views.hello_world ),
-    path('hi/',views.say_hi ),
+    
+    #Prueba
+    path('',views.hello_world, name="hi" ),
+
+    #Users
+    path('login', users_views.login_view , name="login"),
+    path('logout', users_views.logout_view , name="logout"),
+
 ]
