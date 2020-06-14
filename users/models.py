@@ -14,7 +14,7 @@ class Profile(models.Model):
         null=True
     )
     # asesor=1, supervisor=2, visualizador=3, 4=generncial
-    type_user = models.IntegerField(max_length=2,blank=True)
+    type_user = models.IntegerField(blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
