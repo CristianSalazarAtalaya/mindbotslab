@@ -1,7 +1,7 @@
 {% extends "users/base.html" %}
 
 {% block head_content %}
-<title>Platzigram sign in</title>
+<title>Mind Botslab sign in</title>
 {% endblock%}
 
 {% block container %}
@@ -10,7 +10,7 @@
         <p style="color: red;">{{ error }}</p>
     {% endif%}
 
-    <form method="POST" action="{% url "login" %}">
+    <form method="POST" action="{% url "users:login" %}">
         {% csrf_token %}
         <div class="form-group">
             <input class="form-control mb-2"type="text" placeholder="Username" name="username" />

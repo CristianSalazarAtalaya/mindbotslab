@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_content %}
+<title>@{{ request.user.username }} | Update profile</title>
+{% endblock %}
+
+{% block container %}
+
+
+    <table class="table">
+    <caption>List of users</caption>
+    <thead>
+        <tr>
+        <th scope="col">Id</th>
+        <th scope="col">#Documento</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Email</th>
+        <th scope="col">#Movil</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for adviser in advisers %}
+            <tr>
+                <th scope="row">{{ adviser.pk }}</th>
+                <td>{{ adviser.document_number }}</td>
+                <td>{{ adviser.user.first_name}} {{adviser.user.last_name  }}</td>
+                <td>{{ adviser.user.email }}</td>
+                <td>{{ adviser.phone_number }}</td>
+                
+                
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+  {% include "pagination.html" %}
+{% endblock %}
+
+

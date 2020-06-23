@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+
+{% block head_content %}
+<title> Adviser register </title>
+{% endblock head_content %}
+
+    {% block container %}
+
+    <form action="{% url 'people:adviser_register' %}" method="POST">
+        {% csrf_token %}
+         <b>Apellidos: </b>{{ form.errors }}
+        <h1> Registro de asesores </h1>
+
+        <div class="form-group">
+            <input 
+            class="form-control {% if form.first_name.errors %}is-invalid{% endif %}"
+            type="text" 
+            placeholder="Nombres" 
+            name="first_name"
+            value="{% if form.errors %}{{ form.first_name.value }}{% endif %}"
+            required="true" />
+        </div>
+
+        {% for error in form.first_name.errors %}
+            <div class="alert alert-danger">
+                <b>Nombres: </b>{{ error }}
+            </div>
+        {% endfor %}
+
+        <hr>
+
+        <div class="form-group">
+            <input 
+                class="form-control {% if form.last_name.errors %}is-invalid{% endif %}"
+                type="text" 
+                placeholder="Apellidos" 
+                name="last_name" 
+                value="{% if form.errors %}{{ form.last_name.value }}{% endif %}"
+                required="true" 
+                />
+        </div>
+
+        {% for error in form.last_name.errors %}
+            <div class="alert alert-danger">
+                <b>Apellidos: </b>{{ error }}
+            </div>
+        {% endfor %}
+
+        <hr>
+
+        <div class="form-group">
+            <input 
+                class="form-control {% if form.email.errors %}is-invalid{% endif %}"
+                type="email" 
+                placeholder="Email" 
+                name="email" 
+                value="{% if form.errors %}{{ form.email.value }}{% endif %}"
+                required="true" 
+                />
+        </div>
+
+        {% for error in form.email.errors %}
+            <div class="alert alert-danger">
+                <b>Email: </b>{{ error }}
+            </div>
+        {% endfor %}
+
+        <hr>
+
+        <div class="form-group">
+            <input 
+                class="form-control {% if form.phone_number.errors %}is-invalid{% endif %}"
+                type="text"
+                placeholder="Telefono" 
+                value="{% if form.errors %}{{ form.phone_number.value }}{% endif %}"
+                name="phone_number" 
+                />
+        </div>
+        
+        {% for error in form.phone_number.errors %}
+            <div class="alert alert-danger">
+                <b>Telefono: </b>{{ error }}
+            </div>
+        {% endfor %}
+
+        <hr>
+
+        <div class="form-group">
+            <label for="document_type">Tipo de documento</label>
+            <select 
+                class="form-control {% if form.phone_number.errors %}is-invalid{% endif %}"
+                id="document_type"  
+                name="document_type"  
+                required="true"  
+                >
+            <option value="1" >DNI</option>
+            <option value="2">CARNET DE EXTRANGERIA</option>
+            <option value="3">OTRO</option>
+            </select>
+        </div>
+        
+        {% for error in form.document_type.errors %}
+            <div class="alert alert-danger">
+                <b>Tipo de documento: </b>{{ error }}
+            </div>
+        {% endfor %}
+
+        <hr>
+
+
+        <div class="form-group">
+            <label for="type_user">Tipo de usuario</label>
+            <select 
+                class="form-control {% if form.phone_number.errors %}is-invalid{% endif %}"
+                id="type_user"  
+                name="type_user"  
+                required="true"  
+                >
+            <option value="1">ASESOR</option>
+            <option value="2">SUPERVISOR</option>
+            <option value="3">ADMINISTRADOR</option>
+            </select>
+        </div>
+        
+        {% for error in form.type_user.errors %}
+            <div class="alert alert-danger">
+                <b>Tipo de usuario: </b>{{ error }}
+            </div>
+        {% endfor %}
+
+        <hr>
+
+
+        <div class="form-group">
+            <input 
+                class="form-control {% if form.document_number.errors %}is-invalid{% endif %}"
+                type="text" 
+                placeholder="02121212" 
+                name="document_number" 
+                value="{% if form.errors %}{{ form.document_number.value }}{% endif %}"
+                required="true" 
+                />
+        </div>
+        
+        {% for error in form.document_number.errors %}
+            <div class="alert alert-danger">
+                <b>Tipo de usuario: </b>{{ error }}
+            </div>
+        {% endfor %}
+
+        <hr>
+
+
+        <button class="btn btn-primary btn-block mt-5" type="submit">Register!</button>
+
+    </form>
+
+{% endblock container %}

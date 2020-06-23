@@ -33,6 +33,11 @@ html, body {
 .nav-icon a:hover {
     color: #1d5e72;;
 }
+
+.nav-space{
+    margin-top: 6rem!important;
+}
+
 #profile-box {
     background: #fff;
     border: 1px solid rgba(0,0,0,.0975);

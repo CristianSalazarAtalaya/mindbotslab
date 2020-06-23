@@ -24,13 +24,14 @@ def login_view(request):
         else:
             return render(request,'users/login.html',{'error': 'Invalid username an pasword'})
         
-
+    
     return render(request, 'users/login.html')
+
 
 
 @login_required
 def logout_view(request):
     """logout user"""
     logout(request)
-    return redirect("login")
+    return redirect("users:login")
 

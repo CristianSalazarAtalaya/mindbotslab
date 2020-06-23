@@ -1,0 +1,25 @@
+{% block container %}
+
+    <form action="{% url 'people:adviser_update' %}" method="POST">
+        {% csrf_token %}
+        
+        <p class="alert alert-danger">{{ form.errors }}</p>
+
+        
+        <h1> Actualizacion  de asesores </h1>
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Nombres" name="first_name" required="true" />
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Apellidos" name="last_name" required="true" />
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="email" placeholder="Email" name="email" required="true" />
+        </div>
+        <button class="btn btn-primary btn-block mt-5" type="submit">Register!</button>
+
+    </form>
+
+{% endblock container %}

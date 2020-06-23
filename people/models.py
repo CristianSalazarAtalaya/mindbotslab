@@ -14,6 +14,10 @@ class Advisers(models.Model):
         blank=True, 
         null=True
     )
+    # 1=DNI 2=CET 3=OTROS
+    document_type = models.CharField(max_length=20,blank=True)
+    document_number= models.CharField(max_length=20,blank=True)
+
     # asesor=1, supervisor=2, visualizador=3, 4=generncial
     type_user = models.IntegerField(blank=True)
 
@@ -23,3 +27,13 @@ class Advisers(models.Model):
     def __str__(self):
         """return username """
         return self.user.username
+
+
+class Client(models.Model):
+    """Modelo de clientes"""
+    
+    full_name= models.CharField(max_length=20,blank=True)
+
+
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
